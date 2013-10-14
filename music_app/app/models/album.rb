@@ -1,6 +1,7 @@
 class Album < ActiveRecord::Base
-  attr_accessible :name, :band_id
-  validates :name, :band_id, presence: true
+  attr_accessible :name, :band_id, :version
+  validates :name, :band_id, :version, presence: true
+  validates :version, inclusion: { in: %w[live studio]}
   
   belongs_to(
   :band,

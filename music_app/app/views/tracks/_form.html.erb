@@ -16,8 +16,23 @@
   <input type="hidden" name="_method" value="put">
 <% end %>
 
+<label for="track_album">Band</label>
+<select name="track[album]" id="track_album">
+  <option></option>
+  <% @albums.each do |album| %>
+    <option value=<%= album.id %> <%= "selected" if @track && @track.album.id == value %>><%= album.name %></option>
+  <% end %>
+</select>
+<br>  
+
 <label for="track_name">Track name</label>
-<input name="track[name]" id="track_name" type="text">
+<input name="track[name]" id="track_name" type="text" value=<%= @track.name if @track %>>
+<br>
+
+<label for="track_lyrics">Track lyrics</label>
+<textarea name="track[lyrics]" id="track_lyrics" value=<%= @track.lyrics if @track %>>
+</textarea>
+<br>
 <br>
 
 <input type="submit" value="Submit">

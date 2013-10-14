@@ -15,7 +15,7 @@
         
 <% if action == :edit %>
 <input type="hidden" name="_method" value="put">
-<% end %>    
+<% end %> 
 
 <label for="album_band">Band</label>
 <select name="album[band]" id="album_band">
@@ -28,6 +28,15 @@
         
 <label for="album_name">Album name</label>
 <input name="album[name]" id="album_name" type="text">
+<br>
+
+<label for="album_version_studio">Studio</label>
+<input type="radio" name="album[version]" id="album_version_studio" value="studio" <%= "checked" if @album && @album.version == value %>>
+<br>
+
+<label for="album_version_live">Live</label>
+<input type="radio" name="album[version]" id="album_version_live" value="live" <%= "checked" if @album && @album.version == value %>>
+<br>
 <br>
 
 <input type="submit" value="Submit">
