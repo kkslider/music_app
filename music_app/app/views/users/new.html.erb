@@ -1,0 +1,21 @@
+<%= render :partial => "layouts/errors"%>
+
+<h2>Create new user</h2>
+
+<form action="<%= users_url %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+
+<label for="user_email">User email</label>
+<input name="user[email]" id="user_email" type="text">
+<br>
+
+<label for="user_password">User password</label>
+<input name="user[password]" id="user_password" type="text">
+<br>
+<br>
+
+<input type="submit" value="Submit">
+  
+</form>
