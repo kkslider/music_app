@@ -1,0 +1,15 @@
+<%= render :partial => "layouts/errors" %>
+
+<h2>Create new album</h2>
+
+<form action="<%= band_albums_url %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+        
+<label for="album_name">Album name</label>
+<input name="album[name]" id="album_name" type="text">
+<br>
+
+<input type="submit" value="Submit">
+</form>
