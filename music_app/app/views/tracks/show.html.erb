@@ -8,5 +8,14 @@
 <h3>Band</h3>
 <%= link_to("#{@track.band.name}", band_url(@track.band), method: :get) %>
 <br>
-<br>
-<%= button_to("Destroy this track!", track_url, method: :delete)%>
+
+<h3>User Notes</h3>
+<ul>
+<% @track.notes.each do |note| %>
+<li><%= note.content %></li>
+<% end %>
+</ul>
+
+<!-- have to pass @track because track_id is in the params -->
+<%= button_to("Add note", new_track_note_url(@track), method: :get) %>
+<%= button_to("Destroy this track!", track_url, method: :delete) %>

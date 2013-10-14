@@ -1,0 +1,15 @@
+<%= render :partial => "layouts/errors"%>
+
+<!-- only have new action, no edit at the moment -->
+<% action_url = (action == :new) ? track_notes_url : false %>
+<h3>Note for <%= @track.name %></h3>
+<form action="<%= action_url %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+        
+<label for="note_content">Content</label>
+<input name="note[content]" id="note_content" type="text">
+<br>
+<input type="submit" value="Submit">
+</form>

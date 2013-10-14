@@ -14,5 +14,6 @@ Track.create!({ :name => "track1", :album_id => 1, :version => "regular", :lyric
 Track.create!({ :name => "track2", :album_id => 1, :version => "regular", :lyrics => "oh baby" })
 Track.create!({ :name => "track3", :album_id => 1, :version => "bonus", :lyrics => "the night is young" })
 
-
-
+Note.create!({ :user_id => 1, :track_id => 1, :content => "great song" })
+Note.create!({ :user_id => 2, :track_id => 1, :content => "fantastic!" })
+Note.create!({ :user_id => 3, :track_id => 1, :content => "my favorite :)" })
