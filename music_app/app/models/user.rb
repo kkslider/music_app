@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   def self.find_by_credentials(email, secret)
     user = User.find_by_email(email)
     if user
-      user.is_password?(secret)
+      user if user.is_password?(secret)
     end
   end
 end
