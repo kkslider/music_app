@@ -34,5 +34,6 @@ class TracksController < ApplicationController
   end
   
   def destroy
+    Track.delete(params[:id])
   end
 end

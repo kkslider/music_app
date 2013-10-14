@@ -17,11 +17,11 @@
 <input type="hidden" name="_method" value="put">
 <% end %> 
 
-<label for="album_band">Band</label>
-<select name="album[band]" id="album_band">
+<label for="album_band_id">Band</label>
+<select name="album[band_id]" id="album_band_id">
   <option></option>
   <% @bands.each do |band| %>
-    <option value=<%= band.id %> <%= "selected" if @album && @album.band.id == value %>><%= band.name %></option>
+    <option value=<%= band.id %> <%= "selected" if @album && @album.band.id == band.id %>><%= band.name %></option>
   <% end %>
 </select>
 <br>  
@@ -31,11 +31,11 @@
 <br>
 
 <label for="album_version_studio">Studio</label>
-<input type="radio" name="album[version]" id="album_version_studio" value="studio" <%= "checked" if @album && @album.version == value %>>
+<input type="radio" name="album[version]" id="album_version_studio" value="studio" <%= "checked" if @album && @album.version == "studio" %>>
 <br>
 
 <label for="album_version_live">Live</label>
-<input type="radio" name="album[version]" id="album_version_live" value="live" <%= "checked" if @album && @album.version == value %>>
+<input type="radio" name="album[version]" id="album_version_live" value="live" <%= "checked" if @album && @album.version == "live" %>>
 <br>
 <br>
 

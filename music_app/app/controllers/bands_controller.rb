@@ -29,5 +29,6 @@ class BandsController < ApplicationController
   end
   
   def destroy
+    Band.delete(params[:id])
   end
 end

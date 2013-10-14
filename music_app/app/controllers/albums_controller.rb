@@ -33,5 +33,7 @@ class AlbumsController < ApplicationController
   end
   
   def destroy
+    Album.delete(params[:id])
+    # redirect_to 
   end
 end

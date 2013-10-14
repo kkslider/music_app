@@ -16,8 +16,8 @@
   <input type="hidden" name="_method" value="put">
 <% end %>
 
-<label for="track_album">Album</label>
-<select name="track[album_id]" id="track_album">
+<label for="track_album_id">Album</label>
+<select name="track[album_id]" id="track_album_id">
   <option></option>
   <% @albums.each do |album| %>
     <option value=<%= album.id %> <%= "selected" if @track && @track.album.id == album.id %>><%= album.name %></option>
