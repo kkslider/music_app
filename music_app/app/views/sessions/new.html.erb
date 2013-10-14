@@ -1,0 +1,18 @@
+<%= render :partial => "layouts/errors" %>
+
+<h2>Log in</h2>
+<form action="<%= session_url %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+        
+<label for="session_email">Email</label>
+<input name="session[email]" id="session_email" type="text">
+<br>
+
+<label for="session_password">Password</label>
+<input name="session[password]" id="session_password" type="text">
+<br>
+
+<input type="submit" value="Log in">
+</form>
