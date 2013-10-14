@@ -3,6 +3,8 @@ class TracksController < ApplicationController
   end
   
   def show
+    @track = Track.find(params[:id])
+    render :show
   end
   
   def new

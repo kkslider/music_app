@@ -1,0 +1,9 @@
+<h3>Track</h3>
+<%= @track.name %>
+<br>
+
+<h3>Album</h3>
+<%= link_to("#{@track.album.name}", album_url(@track.album), method: :get) %>
+
+<h3>Band</h3>
+<%= link_to("#{@track.band.name}", band_url(@track.band), method: :get) %>
