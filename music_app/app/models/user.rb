@@ -1,7 +1,7 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :password_digest, :session_token
+  attr_accessible :email, :password_digest, :session_token, :password
   validates :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   before_validation(on: :create) do
@@ -23,7 +23,8 @@ class User < ActiveRecord::Base
   end
   
   def is_password?(secret)
-    BCrypt::Password.create(self.password_digest).is_password?(secret)
+    # use BCrypt::Password.new not BCrypt::Password.create
+    BCrypt::Password.new(self.password_digest).is_password?(secret)
   end
   
   def self.find_by_credentials(email, secret)
