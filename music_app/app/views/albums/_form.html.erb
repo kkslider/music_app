@@ -15,7 +15,16 @@
         
 <% if action == :edit %>
 <input type="hidden" name="_method" value="put">
-<% end %>        
+<% end %>    
+
+<label for="album_band">Band</label>
+<select name="album[band]" id="album_band">
+  <option></option>
+  <% @bands.each do |band| %>
+    <option value=<%= band.id %> <%= "selected" if @album && @album.band.id == value %>><%= band.name %></option>
+  <% end %>
+</select>
+<br>  
         
 <label for="album_name">Album name</label>
 <input name="album[name]" id="album_name" type="text">
