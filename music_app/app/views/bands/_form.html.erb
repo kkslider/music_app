@@ -1,0 +1,24 @@
+<%= render :partial => "layouts/errors" %>
+<% action_url = (action == :new) ? bands_url : edit_band_url(band) %>
+
+<% if action == :new %>
+<h2>Create new band</h2>
+<% else %>
+<h2>Edit band</h2>
+<% end %>
+
+<form action="<%= action_url %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+
+<% if action == :edit %>
+  <input type="hidden" name="_method" value="put">
+<% end %>
+
+<label for="band_name">Band name</label>
+<input name="band[name]" id="band_name" type="text">
+<br>
+
+<input type="submit" value="Submit">
+</form>

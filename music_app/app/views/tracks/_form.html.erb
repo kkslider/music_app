@@ -1,0 +1,24 @@
+<%= render :partial => "layouts/errors" %>
+<% action_url = (action == :new) ? album_tracks_url : edit_track_url(track) %>
+
+<% if action == :new %>
+<h2>Create new track</h2>
+<% else %>
+<h2>Edit track</h2>
+<% end %>
+
+<form action="<%= action_url %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+
+<% if action == :edit %>
+  <input type="hidden" name="_method" value="put">
+<% end %>
+
+<label for="track_name">Track name</label>
+<input name="track[name]" id="track_name" type="text">
+<br>
+
+<input type="submit" value="Submit">
+</form>
