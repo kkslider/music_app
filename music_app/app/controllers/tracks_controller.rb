@@ -13,6 +13,16 @@ class TracksController < ApplicationController
   end
   
   def create
+    @track = Track.new(params["track"])
+    
+    if @track.save
+      redirect_to track_url(@track)
+    else
+      flash.now[:errors] = @track.errors.full_messages
+      @albums = Album.all
+      # is just rendering the template, :new has access to @track
+      render :new
+    end
   end
   
   def edit

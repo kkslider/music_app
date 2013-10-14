@@ -16,11 +16,11 @@
   <input type="hidden" name="_method" value="put">
 <% end %>
 
-<label for="track_album">Band</label>
-<select name="track[album]" id="track_album">
+<label for="track_album">Album</label>
+<select name="track[album_id]" id="track_album">
   <option></option>
   <% @albums.each do |album| %>
-    <option value=<%= album.id %> <%= "selected" if @track && @track.album.id == value %>><%= album.name %></option>
+    <option value=<%= album.id %> <%= "selected" if @track && @track.album.id == album.id %>><%= album.name %></option>
   <% end %>
 </select>
 <br>  
@@ -32,6 +32,15 @@
 <label for="track_lyrics">Track lyrics</label>
 <textarea name="track[lyrics]" id="track_lyrics" value=<%= @track.lyrics if @track %>>
 </textarea>
+<br>
+<br>
+
+<label for="track_version_regular">Regular</label>
+<input type="radio" name="track[version]" id="track_version_regular" value="regular" <%= "checked" if @album && @album.version == "regular" %>>
+<br>
+
+<label for="track_version_bonus">Bonus</label>
+<input type="radio" name="track[version]" id="track_version_bonus" value="bonus" <%= "checked" if @album && @album.version == "bonus" %>>
 <br>
 <br>
 
