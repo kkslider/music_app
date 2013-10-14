@@ -1,0 +1,15 @@
+<%= render :partial => "layouts/errors" %>
+
+<h2>Create new band</h2>
+
+<form action="<%= bands_url %>" method="post">
+  <input type="hidden"
+         name="authenticity_token"
+        value="<%= form_authenticity_token %>">
+
+<label for="band_name">Band name</label>
+<input name="band[name]" id="band_name" type="text">
+<br>
+
+<input type="submit" value="Submit">
+</form>
