@@ -9,5 +9,11 @@ class Track < ActiveRecord::Base
   :primary_key => :id
   )
   
+  has_one(
+  :band,
+  :through => :album,
+  :source => :band
+  )
+  
   
 end

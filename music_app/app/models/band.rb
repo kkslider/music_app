@@ -10,4 +10,10 @@ class Band < ActiveRecord::Base
   :dependent => :destroy
   )
   
+  has_many(
+  :tracks,
+  :through => :albums,
+  :source => :tracks
+  )
+  
 end
