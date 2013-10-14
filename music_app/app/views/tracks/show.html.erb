@@ -7,3 +7,6 @@
 
 <h3>Band</h3>
 <%= link_to("#{@track.band.name}", band_url(@track.band), method: :get) %>
+<br>
+<br>
+<%= button_to("Destroy this track!", track_url, method: :delete)%>
