@@ -8,6 +8,14 @@ class User < ActiveRecord::Base
     self.reset_session_token! unless self.session_token
   end
   
+  has_many(
+  :notes,
+  :class_name => "Note",
+  :foreign_key => :user_id,
+  :primary_key => :id
+  )
+  
+  
   def self.generate_session_token
     token = SecureRandom.urlsafe_base64(16)
   end
