@@ -8,4 +8,7 @@ module SessionsHelper
     session[:session_token] = user.session_token
   end
   
+  def logged_in?
+    !!current_user
+  end
 end
