@@ -11,4 +11,9 @@ module SessionsHelper
   def logged_in?
     !!current_user
   end
+  
+  def logout_user!(user)
+    user.reset_session_token!
+    session[:session_token] = nil
+  end
 end
