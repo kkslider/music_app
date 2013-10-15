@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to bensmusic.com, <%= @user.email %></h1>
+    <p>
+      You have successfully signed up to bensmusic.com,
+      your username is: <%= @user.email %>.<br/>
+    </p>
+    <p>
+      Please activate your account with this code: <%= @user.activation_token %>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= link_to("activate", activate_users_url + @url) %>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
