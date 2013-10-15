@@ -12,7 +12,7 @@
 <h3>User Notes</h3>
 <ul>
 <% @track.notes.each do |note| %>
-<li><%= note.content %></li>
+<li><%= note.content %> <%= link_to("Destroy this note!", track_note_url(@track, note), method: :delete) %></li>
 <% end %>
 </ul>
 

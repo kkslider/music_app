@@ -17,4 +17,10 @@ class NotesController < ApplicationController
       render :new
     end
   end
+  
+  def destroy
+    note = Note.find(params[:id])
+    Note.delete(note)
+    redirect_to track_url(Track.find(params[:track_id]))
+  end
 end
