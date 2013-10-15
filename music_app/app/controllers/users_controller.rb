@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :require_logged_in!
+  
   def new
     render :new
   end
@@ -20,4 +22,9 @@ class UsersController < ApplicationController
     render :show
   end
   
+  private
+  
+  def require_logged_in!
+    redirect_to new_session_url unless logged_in?
+  end
 end

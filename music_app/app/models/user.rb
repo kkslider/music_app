@@ -1,11 +1,12 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :password_digest, :session_token, :password
+  attr_accessible :email, :password_digest, :session_token, :password, :activated, :activation_token
   validates :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   before_validation(on: :create) do
     self.reset_session_token! unless self.session_token
+    self.set_activation_token! unless self.activation_token
   end
   
   has_many(
@@ -15,13 +16,17 @@ class User < ActiveRecord::Base
   :primary_key => :id
   )
   
-  
   def self.generate_session_token
-    token = SecureRandom.urlsafe_base64(16)
+    SecureRandom.urlsafe_base64(16)
   end
   
   def reset_session_token!
     self.session_token = User.generate_session_token
+    self.save!
+  end
+  
+  def set_activation_token!
+    self.activation_token = SecureRandom.urlsafe_base64(8)
     self.save!
   end
   

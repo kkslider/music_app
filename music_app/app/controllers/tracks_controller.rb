@@ -1,4 +1,6 @@
 class TracksController < ApplicationController
+  before_filter :require_logged_in!
+  
   def index
   end
   
@@ -35,5 +37,11 @@ class TracksController < ApplicationController
   
   def destroy
     Track.delete(params[:id])
+  end
+  
+  private
+  
+  def require_logged_in!
+    redirect_to new_session_url unless logged_in?
   end
 end

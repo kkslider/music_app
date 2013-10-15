@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_filter :require_logged_in!
+  
   def index
   end
   
@@ -35,5 +37,11 @@ class AlbumsController < ApplicationController
   def destroy
     Album.delete(params[:id])
     # redirect_to 
+  end
+  
+  private
+  
+  def require_logged_in!
+    redirect_to new_session_url unless logged_in?
   end
 end
